@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "秒苗",
+    "component": true,
+    "usingComponents": {
+        "dialog": "./../../../components/dialog/dialog"
+    }
+}

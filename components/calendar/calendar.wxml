@@ -1,0 +1,27 @@
+<view class="ms-calendar">
+    <view class="ms-calendar_header">
+        <view bind:tap="__dispatcher" class="btn left ms-arrow ms-arrow_left" data-wpy-evt="54-0" month="{{date.preMonth}}"></view>
+        <view class="ms-cur_date">{{date.year}}年{{date.month}}月</view>
+        <view bind:tap="__dispatcher" class="btn ms-arrow ms-arrow_right" data-wpy-evt="54-1" month="{{date.nextMonth}}"></view>
+    </view>
+    <view class="ms-calendar_main">
+        <view class="ms-calendar_week_title">
+            <text class="txt">日</text>
+            <text class="txt">一</text>
+            <text class="txt">二</text>
+            <text class="txt">三</text>
+            <text class="txt">四</text>
+            <text class="txt">五</text>
+            <text class="txt">六</text>
+        </view>
+        <view class="ms-date_week" key="{{index}}" wx:for="{{weeks}}" wx:key="index">
+            <view class="ms-date_day" key="{{day.ymd}}" wx:for="{{item}}" wx:for-index="idx" wx:for-item="day" wx:key="idx">
+                <view bind:tap="__dispatcher" class="ms-day_num {{[subscribeDate==day.ymd?'checked':'',day.isWorkday?'workday':'']}}" data-wpy-evt="54-2" data-wpytap-a="{{day}}" day="{{day.ymd}}" wx:if="{{day.month==date.month}}"> {{day.v}} <text class="ms-date_full" wx:if="{{day.isFull}}">满</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="ms-calendar_tip">
+        <image class="icon" src="/static/images/icon-grey_tip.png"></image>灰色为未开放的门诊日，“满”表示已约满 </view>
+    <slot name="time"></slot>
+</view>

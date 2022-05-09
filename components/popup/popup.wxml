@@ -1,0 +1,7 @@
+<view catch:touchmove="__dispatcher" data-wpy-evt="55-0">
+    <view bind:tap="__dispatcher" catch:touchmove="__dispatcher" class="q-pp-mask  {{visible?'q-pp-mask-show':''}} ptp_exposure" data-ptpid="0d05-191c-8bb6-b8fb" data-wpy-evt="55-1">
+        <view catch:touchmove="__dispatcher" class=" q-pp {{visible?'q-pp-show':''}}" data-wpy-evt="55-3">
+            <slot data-type="unclose" name="content"></slot>
+        </view>
+    </view>
+</view>

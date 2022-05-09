@@ -1,0 +1,70 @@
+<view class="page">
+    <view class="{{!isTrans?'bg-white':null}}">
+        <view class="fixed-header {{!isTrans?null:'transparent'}}" style="padding-top:{{statusBarHeight}}px;">
+            <view bind:tap="__dispatcher" class="btn-groups" data-wpy-evt="14-0">
+                <view class="btn-address">
+                    <view class="icon">
+                        <image class="ms-img_fit" mode="widthFix" src="/static/images/icon-address.png"></image>
+                    </view>
+                    <view class="address" wx:if="{{address&&address.city}}">{{address.city}}</view>
+                    <view class="address" wx:else>选择地址</view>
+                </view>
+            </view>
+            <text class="title" wx:if="title">{{title}}</text>
+        </view>
+    </view>
+    <view class="banner">
+        <image class="image" src="{{staticImg.banner}}"></image>
+    </view>
+    <view bind:tap="__dispatcher" class="page__bd pending_order" data-wpy-evt="14-1" wx:if="{{unfillOrder}}">
+        <view class="tip">
+            <view class="icon">
+                <image class="ms-img_fit" src="/static/images/icon-info.png"></image>
+            </view>
+            <text class="txt">您有待处理的订单哦</text>
+        </view>
+        <view class="btn-handle weui-select">去处理</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view bind:tap="__dispatcher" class="weui-panel__bd ms-card_panel" data-wpy-evt="14-2" data-wpytap-a="{{item}}" key="{{index}}" wx:for="{{skList}}" wx:key="index">
+                <view class="weui-media-box weui-media-box_appmsg border-bottom">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <view class="weui-media-box__thumb" wx:if="{{item.imgUrl&&item.imgUrl!=''}}">
+                            <image class="img" mode="aspectFill" src="{{item.imgUrl}}"></image>
+                        </view>
+                        <view class="weui-media-box__thumb" wx:else>
+                            <image class="img" src="{{staticImg.default_depa}}"></image>
+                        </view>
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{item.vaccineName}}</view>
+                        <view class="weui-media-box__desc marginBottom" wx:if="{{!item.vaccineIndex}}">预约针次：所有针次</view>
+                        <view class="weui-media-box__desc marginBottom" wx:else>预约针次：{{'第'+item.vaccineIndex+'针'}}</view>
+                        <view class="weui-media-box__desc marginBottom">{{item.name}}</view>
+                    </view>
+                </view>
+                <view class="weui-media-box__info">
+                    <view class="weui-media-box__info__meta">
+                        <view>
+                            <view class="weui-media-box__info__meta">
+                                <view class="icon-time">
+                                    <image class="ms-img_fit" mode="widthFix" src="/static/images/icon-sm_time.png"></image>
+                                </view>
+                                <view class="time">{{item.startTime}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <button class="btn ms-btn_red ms-translucent" type="button" wx:if="{{item.stock&&item.stock>0&&item.msState==0}}">即将开始</button>
+                    <button class="btn ms-btn_red" type="button" wx:if="{{item.stock&&item.stock>0&&item.msState==1}}">去秒杀</button>
+                    <button class="btn ms-btn_gray" type="button" wx:if="{{(!item.stock||item.stock<=0)&&item.msState==1}}">已抢光</button>
+                </view>
+            </view>
+            <loadmore bind_init="__initComponent" emptyTxt="{{address&&address.id?'该地区没有秒杀活动':'请先选择地区'}}" status="{{loadStatus}}"></loadmore>
+        </view>
+    </view>
+    <login-modal bind_init="__initComponent" showLoginModal="{{isShowLogin}}"></login-modal>
+</view>
+<wxs module="m1">
+"use strict";
+</wxs>

@@ -1,0 +1,21 @@
+<view class="main" wx:if="{{showLoginModal}}">
+    <view class="login-panel">
+        <view bind:tap="__dispatcher" class="btn-close" data-wpy-evt="52-0">
+            <view class="icon-close">
+                <image class="icon-close" src="/static/images/icon-close.png"></image>
+            </view>
+        </view>
+        <view class="logo">
+            <view class="img">
+                <image class="img" src="{{staticImg.logo}}"></image>
+            </view>
+        </view>
+        <view class="info">为用户提供紧缺疫苗的线上秒杀预约服务</view>
+        <view class="btn-group">
+            <button bind:tap="__dispatcher" class="btn ms-btn_gradient_blue" data-wpy-evt="52-1" wx:if="{{canIUseGetUserProfile}}"> 微信用户一键登录 </button>
+            <button bind:getuserinfo="__dispatcher" class="btn ms-btn_gradient_blue" data-wpy-evt="52-2" openType="getUserInfo" wx:else> 微信用户一键登录 </button>
+        </view>
+        <view class="agreement">点击登录即表示已阅读并同意 <view bind:tap="__dispatcher" class="btn ms-color_blue" data-wpy-evt="52-3">《用户协议》</view>和 <view bind:tap="__dispatcher" class="btn ms-color_blue" data-wpy-evt="52-4">《隐私政策》</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,21 @@
+<view class="bottom-load">
+    <view class="no-data-box" wx:if="{{status==0}}">
+        <image class="image" mode="widthFix" src="{{staticImg.error}}"></image>
+        <view class="empty-data">
+            <text class="empty-tips">{{emptyTxt||'没有相关数据'}}</text>
+        </view>
+    </view>
+    <view class="no-data-loding" wx:elif="{{status==1}}">
+        <text class="no-data-tips">加载中...</text>
+        <image class="image" mode="widthFix" src="{{staticImg.loading}}"></image>
+    </view>
+    <view class="data-bottom-line" wx:elif="{{status==2}}">
+        <view class="left fl"></view>
+        <view class="msg fl">我是有底线的</view>
+        <view class="right fl"></view>
+    </view>
+    <view class="full-screen" wx:elif="{{status==3}}">
+        <image class="image" mode="widthFix" src="{{staticImg.loading}}"></image>
+        <text class="no-data-tips">{{loadTxt||'疯狂加载中…'}}</text>
+    </view>
+</view>

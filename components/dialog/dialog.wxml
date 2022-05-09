@@ -1,0 +1,16 @@
+<view>
+    <view bind:tap="__dispatcher" bind:touchmove="__dispatcher" class="modal-mask" data-wpy-evt="56-0" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" style="top:{{top}};" wx:if="{{showModal}}">
+        <view class="modal-title">{{title}}</view>
+        <view class="modal-content">
+            <slot name="content"></slot>
+            <view class="content" wx:if="{{content}}">
+                <view class="txt">{{content}}</view>
+            </view>
+        </view>
+        <view class="modal-footer">
+            <view bind:tap="__dispatcher" class="btn btn-cancel {{[!showCancleBtn||!showConfirmBtn?'block':'']}}" data-wpy-evt="56-2" wx:if="{{showCancleBtn}}">{{cancelTxt}}</view>
+            <view bind:tap="__dispatcher" class="btn btn-confirm {{[!showCancleBtn||!showConfirmBtn?'block':'']}}" data-wpy-evt="56-3" wx:if="{{showConfirmBtn}}">{{confirmTxt}}</view>
+        </view>
+    </view>
+</view>
