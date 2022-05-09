@@ -1,0 +1,63 @@
+{
+    "pages": [
+        "pages/index",
+        "pages/login/authPhone",
+        "pages/address/authAddress",
+        "pages/address/cityView",
+        "pages/appoint/msSeckill",
+        "pages/appoint/msSelectUser",
+        "pages/appoint/msSelectDate",
+        "pages/appoint/msSuccess",
+        "pages/member/memberList",
+        "pages/member/memberEdit",
+        "pages/mine/mine",
+        "pages/mine/accountSet",
+        "pages/mine/bindMobile"
+    ],
+    "window": {
+        "navigationBarTitleText": "秒苗",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#8797B2",
+        "selectedColor": "#357DED",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index",
+                "text": "首页",
+                "iconPath": "static/images/icon-home_unsel.png",
+                "selectedIconPath": "static/images/icon-home_sel.png"
+            },
+            {
+                "pagePath": "pages/mine/mine",
+                "text": "我的",
+                "iconPath": "static/images/icon-mine_unsel.png",
+                "selectedIconPath": "static/images/icon-mine_sel.png"
+            }
+        ]
+    },
+    "subPackages": [
+        {
+            "root": "package/",
+            "pages": [
+                "pages/order/myOrder",
+                "pages/order/orderDetails",
+                "pages/order/orderCancle",
+                "pages/order/needsDetails",
+                "pages/outurl/question",
+                "pages/outurl/contact",
+                "pages/outurl/depaHome",
+                "pages/outurl/vacNeeds",
+                "pages/outurl/treaty",
+                "pages/treaty/regist",
+                "pages/treaty/privacy",
+                "pages/treaty/privacyManage",
+                "pages/treaty/personalInfo"
+            ]
+        }
+    ]
+}
